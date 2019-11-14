@@ -1,0 +1,515 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css?family=Livvic|Titillium+Web:600,700&display=swap')
+
+// VARIABLES
+$deepPink: #FF0970
+$grayBlack: #23282f
+
+// MIXINS
+=size($height, $width)
+	height: $height
+	width: $width
+
+// RESET CSS
+*
+	margin: 0
+
+body
+	font-family: 'Livvic', sans-serif
+	color: #707070
+	font-size: 16px
+	@media (max-width: 1199px)
+		font-size: 14px
+
+::selection
+	background-color: $deepPink
+	color: #fff
+
+h1, h2, h3, h4, h5
+	font-family: 'Titillium Web', sans-serif
+	color: #757575
+	font-weight: 700
+
+h3
+	font-size: 35px
+	line-height: 1
+	text-transform: uppercase
+	margin-bottom: 25px
+	@media (max-width: 1199px)
+		font-size: 30px
+		margin-bottom: 15px
+
+a, a:hover
+	color: $deepPink
+
+
+.pt100
+	padding-top: 100px
+
+.pb100
+	padding-bottom: 100px
+
+.pt50
+	padding-top: 50px
+
+.pb50
+	padding-bottom: 50px
+
+.bglg
+	background-color: #f9f9f9
+
+.mc
+	margin: 0 auto
+.tac
+	text-align: center
+
+.mcolor
+	color: $deepPink
+
+.sheading
+	text-align: center
+	margin-bottom: 70px
+
+.bgw
+	background-color: #fff !important
+
+.bsb1
+	box-shadow: 0px 5px 5px rgba(0, 0, 0, .1)
+
+button
+	padding: 15px 50px
+	display: flex
+	align-items: center
+	border: none
+	border-radius: 5px
+	background-color: $deepPink
+	color: #fff
+	transition: .3s
+	@media (max-width: 1199px)
+		padding: 10px 30px
+	
+button.style1
+	&:hover
+		box-shadow: 5px 5px 10px rgba(0, 0, 0, .2)
+
+button.style2
+	span
+		padding-left: 0px
+		max-width: 0
+		display: inline-flex
+		transition: .3s
+		overflow: hidden
+		opacity: 0
+	&:hover
+		span
+			max-width: unset
+			padding-left: 10px
+			opacity: 1
+button.style3
+	@media (max-width: 991px)
+		padding: 5px 15px !important
+	background-color: #91898D
+	&:hover
+		background-color: $deepPink
+button.style3.active
+	background-color: $deepPink
+	@media (max-width: 991px)
+		padding: 5px 15px !important
+
+.sframe.style1t, .sframe.style1b
+	position: relative
+	&:before, &:after
+		content: ''
+		position: absolute
+		+size(100px, 100%)
+		left: 0
+		background-color: #fff
+
+.sframe.style1t
+	padding-top: 100px
+	&:before
+		top: 0
+		clip-path: polygon(0 0, 0 100%, 100% 0)
+
+.sframe.style1b
+	padding-bottom: 100px
+	&:after
+		bottom: 0
+		clip-path: polygon(0 100%, 100% 100%, 100% 0)
+
+.sframe.style2b
+	position: relative
+	z-index: 0
+	&:after
+		content: ''
+		+size(200px, 100%)
+		background-color: #fff
+		position: absolute
+		bottom: 0
+		left: 0
+		z-index: -1
+
+
+// STYLES
+header
+	.navbar-light
+		background-color: transparent !important
+		.navbar-brand, .navbar-brand:hover, .navbar-brand:focus
+			font-family: Copperplate Gothic
+			font-size: 40px
+			font-weight: bold
+			color: $deepPink
+		.navbar-nav
+			.nav-link.active
+				color: $deepPink
+				font-weight: bold
+		.navbar-collapse
+			@media (max-width: 991px)
+				text-align: center
+
+#banner
+	height: 100vh
+	background: url('../img/banner/banner-bg.jpg') no-repeat right bottom
+	background-size: cover
+	display: flex
+	align-items: center
+	position: relative
+	@media (max-width: 991px)
+		background-image: none
+		&:after
+			position: absolute
+			content: ''
+			clip-path: polygon(0 0, 100% 0, 100% 45%, 45% 100%, 0 100%)
+			background-color: #FCF9F9
+			+size(100%, 100%)
+			z-index: -1
+	.ls-inner
+		text-align: center
+		ul
+			padding: 0
+			overflow: hidden
+			li
+				list-style: none
+				display: inline-block
+				padding: 0 20px
+				a
+					font-size: 35px
+					color: $deepPink
+					@media (max-width: 1199px)
+						font-size: 30px
+		h2
+			font-size: 70px
+			margin: 30px auto
+			@media (max-width: 1199px)
+				font-size: 50px
+		p
+			margin-bottom: 30px
+	.sframe
+		width: 100%
+		height: 200px
+		background-color: #fff
+		position: absolute
+		bottom: 0
+		background: linear-gradient(to bottom, transparent, #fff 80%)
+		@media (max-width: 991px)
+			display: none
+
+#about
+	.ls-inner
+		position: relative
+		img
+			width: 80%
+			display: block
+			opacity: .3
+			transition: .3s
+			@media (max-width: 767px)
+				opacity: 1
+				width: 100%
+				margin-bottom: 30px
+				filter: grayscale(100%)
+			&:nth-child(2), &:nth-child(3)
+				position: absolute
+				left: 0
+				top: 0
+				@media (max-width: 767px)
+					display: none
+			&:nth-child(2)
+				opacity: .7
+			&:nth-child(3)
+				opacity: 1
+	&:hover img
+		@media (max-width: 767px)
+			filter: grayscale(0)
+	&:hover img:nth-child(2)
+		left: 20px
+		top: -20px
+	&:hover img:nth-child(3)
+		left: 40px
+		top: -40px
+	.rs
+		display: grid
+		align-items: center
+#skills
+	.col-md-2
+		@media (max-width: 991px)
+			margin-bottom: 30px
+		.pbar
+			+size(300px, 20px)
+			background-color: #fff
+			border-radius: 10px
+			position: relative
+			margin-bottom: 15px
+			span
+				position: absolute
+				width: 20px
+				bottom: 0
+				left: 0
+				border-radius: 10px
+				background-color: $deepPink
+h5
+	text-align: center
+
+.service-item
+	.service-item-inner
+		padding: 15px
+		text-align: center
+		.icon
+			padding: 30px
+			border: 3px solid #cfcfcf
+			border-radius: 50%
+			display: inline-block
+			margin-bottom: 15px
+			position: relative
+			transition: .3s
+			&:before, &:after
+				content: ''
+				position: absolute
+				+size(100%, 100%)
+				border: 3px solid #cfcfcf
+				border-radius: 50%
+				transition: .3s
+			&:before
+				left: 3px
+				top: 0px
+			&:after
+				left: -3px
+				top: -2px
+			img
+				width: 65px
+		&:hover
+			.icon
+				border-color: $deepPink
+				&:before, &:after
+					border-color: $deepPink
+		h4
+			margin: 0
+		ul
+			overflow: hidden
+			padding: 0
+			margin: 15px -10px
+			@media (max-width: 1199px)
+				margin: 10px -10px
+			li
+				list-style: none
+				display: inline-block
+				padding: 0 10px
+				color: $deepPink
+				font-size: 14px
+#portfolio
+	background: url('../img/email-pattern.png')
+	@media (max-width: 575px)
+		background-image: none
+		background-color: #f9f9f9
+	h3
+		text-align: center
+		margin: 0
+		@media (max-width: 575px)
+			padding-bottom: 70px
+	.container
+		background-color: #fff
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+		padding: 70px 20px 50px
+		@media (max-width: 575px)
+			box-shadow: none
+			background-color: inherit
+			padding-bottom: 100px
+			padding-top: 0
+		.buttons
+			text-align: center
+			margin-bottom: 30px
+			button
+				display: inline-block
+				margin: 0 5px
+				padding: 10px 30px
+				@media (max-width: 991px)
+					margin-bottom: 10px
+
+.portfolio
+	.items
+		margin: 0 -10px -20px
+		@media (max-width: 575px)
+			margin: 0 -5px -10px
+		.item
+			width: calc(100% / 4)
+			padding: 0 10px 20px
+			@media (max-width: 991px)
+				width: calc(100% / 3)
+			@media (max-width: 575px)
+				padding: 0 5px 10px
+				width: calc(100% / 2)
+			.item-inner
+				position: relative
+				overflow: hidden
+				img
+					width: 100%
+					transition: .3s
+				.overlay
+					position: absolute
+					+size(100%, 100%)
+					top: 0
+					left: 0
+					padding: 10px
+					background-color: rgba(0, 0, 0, .5)
+					opacity: 0
+					transition: .3s
+					h4, a, .tags
+						color: #fff
+					h4
+						transform: translateY(calc(-100% - 10px))
+						transition: .3s
+					.bottom
+						position: absolute
+						bottom: 0
+						left: 0px
+						padding: 10px
+						display: flex
+						align-items: center
+						width: 100%
+						transform: translateY(100%)
+						transition: .3s
+						.tags
+							flex-grow: 4
+							margin-bottom: -5px
+							span
+								padding: 5px
+								background-color: $deepPink
+								border-radius: 5px
+								margin-right: 5px
+								font-size: 12px
+								margin-bottom: 5px
+								display: inline-block
+						a
+							text-align: right
+							flex-grow: 1
+							font-size: 35px
+
+			&:hover
+				img
+					transform: scale(1.2)
+				.overlay
+					opacity: 1
+					h4
+						transform: translateY(0)
+					.bottom
+						transform: translateY(0)
+
+				
+
+
+.testemonial
+		.items
+			overflow: hidden
+			margin: 0 -25px -20px -25px
+			@media (max-width: 575px)
+				margin: 0
+			.item
+				padding: 0 10px
+				float: left
+				.item-inner
+					padding: 30px
+					box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+					margin: 10px 0
+					.author
+						display: flex
+						align-items: center
+						.left
+							max-width: 100px
+							margin-right: 10px
+							border-radius: 50%
+							overflow: hidden
+							padding: 5px
+							border: 1px solid $deepPink
+							img
+								display: block
+								width: 100%
+								border-radius: 50%
+						.right
+							h5, a
+								text-align: left
+
+#contact
+	@media (max-width: 575px)
+		padding: 0
+	.contact
+		background-color: #fff
+		transition: .3s
+		border-radius: 10px
+		overflow: hidden
+		@media (max-width: 767px)
+			border-radius: 0
+		.left
+			padding: 50px
+			background-color: $deepPink
+			display: flex
+			align-items: center
+			color: #fff
+			@media (max-width: 575px)
+				padding-top: 100px
+				padding-bottom: 100px
+			h4
+				color: #fff
+			ul
+				padding: 0
+				overflow: hidden
+				li
+					list-style: none
+			.socials
+				margin-bottom: 0
+				li
+					display: inline-block
+					margin-right: 10px
+					a
+						color: #fff
+						font-size: 30px
+		.right
+			padding: 50px
+			@media (max-width: 575px)
+				padding-top: 100px
+				padding-bottom: 100px
+			.fr
+				margin: 0 -10px
+				.w50
+					width: 50%
+					padding: 0 10px 
+					float: left
+			input, textarea
+				width: 100%
+				padding: 7px
+				padding-left: 10px
+				margin-bottom: 20px
+				border-radius: 5px
+				border: 1px solid #ccc
+			textarea
+				height: 200px
+	&:hover .contact
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2)
+		@media (max-width: 575px)
+			box-shadow: none
+
+footer
+	background-color: $grayBlack
+	p
+		padding: 20px 0
+		text-align: center
+		margin: 0
+		color: #fff
